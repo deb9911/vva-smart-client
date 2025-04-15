@@ -1,17 +1,129 @@
-<!-- templates/index.html -->
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Vaani Smart UI</title>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart UI</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        body { font-family: sans-serif; text-align: center; margin: 30px; }
-        .btn { padding: 15px 25px; font-size: 18px; margin: 10px; }
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #f4f6f9;
+        }
+
+        /* Sidebar (Drawer) */
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100vh;
+            width: 240px;
+            background-color: #3f51b5;
+            color: white;
+            padding: 20px;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+            display: none;
+            z-index: 2;
+        }
+
+        .sidebar .user-icon {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .sidebar a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            margin: 15px 0;
+            font-weight: bold;
+        }
+
+        .sidebar a:hover {
+            text-decoration: underline;
+        }
+
+        /* Top bar */
+        .top-bar {
+            background-color: #3f51b5;
+            color: white;
+            padding: 10px 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .menu-icon {
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .main-content {
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        /* Voice Button */
+        .voice-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #ff5722;
+            border: none;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .section-card {
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 10px 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
     </style>
 </head>
 <body>
-    <h1>Vaani Smart Control</h1>
-    <button class="btn" onclick="alert('Light ON')">Turn On Light</button>
-    <button class="btn" onclick="alert('Light OFF')">Turn Off Light</button>
+
+<div class="top-bar">
+    <i class="fas fa-bars menu-icon" onclick="toggleSidebar()"></i>
+    <h2 style="margin-left: 15px;">Smart UI</h2>
+</div>
+
+<div class="sidebar" id="sidebar">
+    <div class="user-icon">
+        <i class="fas fa-user-circle"></i>
+    </div>
+    <a href="#">Preference</a>
+    <a href="#">Command Operations</a>
+    <a href="#">Central Hub Status</a>
+    <a href="#">Log Viewer</a>
+</div>
+
+<div class="main-content">
+    <div class="section-card">
+        <h3>Welcome to Smart UI</h3>
+        <p>This is a placeholder for your main content. More interactive modules will appear here.</p>
+    </div>
+</div>
+
+<button class="voice-button" title="Speak">
+    <i class="fas fa-microphone"></i>
+</button>
+
+<script>
+    function toggleSidebar() {
+        const sidebar = document.getElementById('sidebar');
+        sidebar.style.display = sidebar.style.display === 'block' ? 'none' : 'block';
+    }
+</script>
+
 </body>
 </html>
